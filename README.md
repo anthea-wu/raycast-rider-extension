@@ -28,7 +28,7 @@ pnpm install
 
 3. Choose an installation method:
 
-Method 1: Development Mode (recommended for development)
+Development Mode:
 ```bash
 npm run dev
 # or
@@ -37,22 +37,13 @@ yarn dev
 pnpm run dev
 ```
 
-Method 2: Production Build
-```bash
-# 1. Build the extension (choose one)
-npm run build
-# or
-yarn build
-# or
-pnpm run build
+After running the development command:
+- The extension will be automatically installed in Raycast
+- Open Raycast (⌘ Space)
+- Type "Search Recent Project" to verify the installation
+- Once you see the extension in Raycast, you can press Ctrl+C in terminal to stop the development mode
 
-# 2. Install in Raycast
-# - Open Raycast Settings (⌘ + ,)
-# - Select Extensions tab
-# - Click + in bottom left
-# - Choose "Import Extension"
-# - Select the dist folder
-```
+Note: Currently, this extension is for development use only and not available in the Raycast Store.
 
 ## Features
 
