@@ -4,13 +4,14 @@ A Raycast extension for quickly searching and opening recent JetBrains Rider pro
 
 ## Prerequisites
 
-- [Raycast](https://raycast.com/) installed
-- [JetBrains Rider](https://www.jetbrains.com/rider/) installed
-- Node.js installed
+- [Raycast](https://raycast.com/)
+- [JetBrains Rider](https://www.jetbrains.com/rider/)
+- [Node.js](https://nodejs.org/)
+- Package manager (npm, yarn, or pnpm)
 
 ## Installation
 
-1. Clone this repository:
+1. Clone the repository:
 ```bash
 git clone https://github.com/YOUR_USERNAME/raycast-rider-extension
 cd raycast-rider-extension
@@ -18,78 +19,90 @@ cd raycast-rider-extension
 
 2. Install dependencies (choose one):
 ```bash
-# Using npm
 npm install
-
-# Using yarn
+# or
 yarn install
-
-# Using pnpm
+# or
 pnpm install
 ```
 
-3. Development mode (use the same tool you chose above):
+3. Choose an installation method:
+
+Method 1: Development Mode (recommended for development)
 ```bash
-# Using npm
 npm run dev
-
-# Using yarn
+# or
 yarn dev
-
-# Using pnpm
+# or
 pnpm run dev
 ```
 
-4. The extension will be automatically installed in Raycast. You can find it by:
-   - Opening Raycast (⌘ Space)
-   - Typing "Search Recent Project"
+Method 2: Production Build
+```bash
+# 1. Build the extension (choose one)
+npm run build
+# or
+yarn build
+# or
+pnpm run build
+
+# 2. Install in Raycast
+# - Open Raycast Settings (⌘ + ,)
+# - Select Extensions tab
+# - Click + in bottom left
+# - Choose "Import Extension"
+# - Select the dist folder
+```
 
 ## Features
 
-- List all recent Rider projects with their paths and last opened dates
-- Quick search through project names and paths
-- Open projects directly in Rider
-- Show project location in Finder
+- Quick search and open recent JetBrains Rider projects
+- Show project details (name, path, last opened date)
+- Open in Rider with Enter key
+- Show in Finder
 - Copy project path (⌘ .)
-- Different icons for:
-  - Solution files (.sln)
-  - GitHub projects
-  - Regular folders
+- Visual indicators for different project types
 
 ## Usage
 
 1. Open Raycast (⌘ Space)
 2. Type "Search Recent Project"
-3. Browse or search through your recent projects
-4. Available actions:
-   - Press Enter to open the selected project in Rider
-   - Press ⌘ . to copy the project path
-   - Use the "Show in Finder" action to locate the project
+3. Available actions:
+   - Enter: Open project in Rider
+   - ⌘ .: Copy project path
+   - Show in Finder: Locate project
 
-## Configuration Files
+## Technical Details
 
-The extension reads Rider's recent projects from:
-- `~/Library/Application Support/JetBrains/Rider*/options/recentSolutions.xml`
+The extension reads project data from:
+```
+~/Library/Application Support/JetBrains/Rider*/options/recentSolutions.xml
+```
+
+It automatically:
+- Finds the latest Rider installation
+- Reads the configuration file
+- Parses project information
 
 ## Troubleshooting
 
-If you encounter any issues:
+Common issues and solutions:
 
-1. Make sure Rider is installed and can be opened from your system
-2. Verify that:
-   - You have opened at least one project in Rider
-   - The configuration file exists and is accessible
-   - You have the necessary permissions to read the configuration file
+1. "Rider application not found"
+   - Verify Rider installation
+   - Check if Rider can be opened normally
 
-3. Common error messages and solutions:
-   - "Rider application not found": Check your Rider installation
-   - "No Recent Projects Found": Open some projects in Rider first
-   - "Failed to Load Projects": Check file permissions and Rider's configuration
+2. "No Recent Projects Found"
+   - Open at least one project in Rider first
+   - Check if the configuration file exists
 
-4. To reinstall:
-   - Open Raycast
-   - Go to Extensions
-   - Find "JetBrains Rider Projects"
-   - Click the gear icon
-   - Choose "Remove Extension"
-   - Follow the installation steps above again 
+3. "Failed to Load Projects"
+   - Verify file permissions
+   - Check configuration file access
+
+To reinstall:
+1. Open Raycast Settings
+2. Go to Extensions
+3. Find "JetBrains Rider Projects"
+4. Click gear icon → Remove Extension
+5. Follow installation steps again 
